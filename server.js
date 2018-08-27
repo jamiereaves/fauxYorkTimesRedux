@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -17,12 +18,12 @@ if(process.env.NODE_ENV === "production"){
 //API ROUTES HERE
 app.use(routes);
 
+//mongo db connection
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fauxYorkTimesRedux")
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-//mongo db connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fauxYorkTimesRedux")
 
 app.listen(PORT, () => {
   console.log('Listening on port: ' + PORT);
