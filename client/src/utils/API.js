@@ -4,7 +4,6 @@ const keys = require("../keys");
 export default {
   // Returns articles from the NYT API
   getArticles: function(keyword, start, end) {
-    console.log(keys);
     return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + keys.nyt.key + "&q=" + keyword + "&begin_date=" + start + "&end_date=" + end);
   },
   // Returns all saved articles from the db
