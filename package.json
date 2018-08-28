@@ -2,6 +2,9 @@
   "name": "fauxYorkTimesRedux",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "9.9.0"
+  },
   "repository": "git@github.com:jamiereaves/fauxYorkTimesRedux.git",
   "author": "jamie reaves <jamiereaves@utexas.edu>",
   "license": "MIT",
