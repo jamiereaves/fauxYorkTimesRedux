@@ -66,11 +66,11 @@ class Articles extends Component {
     const theRest = this.state.articles.filter(article => article._id !== x);
     console.log(theRest);
     this.setState({
-      title: targetArticle[0].headline.print_headline, 
-      byline: targetArticle[0].byline.original, 
+      title: targetArticle[0].headline.print_headline ? targetArticle[0].headline.print_headline : targetArticle[0].headline.main, 
+      byline: targetArticle[0].byline ? targetArticle[0].byline.original : targetArticle[0].news_desk,
       summary: targetArticle[0].snippet,
       url: targetArticle[0].web_url,
-      image: "https://www.nytimes.com/" + targetArticle[0].multimedia[2].url,
+      image: article.multimedia[2] ? "https://www.nytimes.com/" + targetArticle[0].multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png",
       NYTID: targetArticle[0]._id
       }, function(){
         console.log(this.state.title)
