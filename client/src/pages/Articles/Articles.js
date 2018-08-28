@@ -53,14 +53,18 @@ class Articles extends Component {
         .catch(err => console.log(err));
   };
 
+  //hides articles and displays the search bar
   changeView = () => {
-    document.getElementById('searchDisplay').style.display = "inherit";
     document.getElementById('articleDisplay').style.display = "none";
+    document.getElementById('searchDisplay').style.display = "inherit";
   };
 
   handleSaveArticle = (x) => {
     //event.preventDefault();
     const targetArticle = this.state.articles.filter(article => article._id === x);
+    console.log(targetArticle);
+    const theRest = this.state.articles.filter(article => article._id !== x);
+    console.log(theRest);
     this.setState({
       title: targetArticle[0].headline.print_headline, 
       byline: targetArticle[0].byline.original, 
@@ -78,7 +82,7 @@ class Articles extends Component {
           image: this.state.image,
           NYTID: this.state.NYTID
         })
-          .then(console.log("HIDE THE ARTICLE THAT WAS ADDED!!!!!"))
+          .then(this.setState({articles: theRest}))
       .catch(err => console.log(err));
       })
     
