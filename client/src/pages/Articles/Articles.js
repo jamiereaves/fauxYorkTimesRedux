@@ -70,7 +70,7 @@ class Articles extends Component {
       byline: targetArticle[0].byline ? targetArticle[0].byline.original : targetArticle[0].news_desk,
       summary: targetArticle[0].snippet,
       url: targetArticle[0].web_url,
-      image: article.multimedia[2] ? "https://www.nytimes.com/" + targetArticle[0].multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png",
+      image: targetArticle[0].multimedia[2] ? "https://www.nytimes.com/" + targetArticle[0].multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png",
       NYTID: targetArticle[0]._id
       }, function(){
         console.log(this.state.title)
