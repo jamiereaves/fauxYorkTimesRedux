@@ -1,5 +1,6 @@
 import axios from "axios";
 const keys = require("../keys");
+console.log("HEY API HEROKU CONFIG VAR" + REACT_APP_NYT_KEY)
 
 export default {
   // Returns articles from the NYT API
