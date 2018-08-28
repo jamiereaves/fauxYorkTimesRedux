@@ -1,5 +1,5 @@
 import axios from "axios";
-const keys = require("./keys");
+const keys = require("../keys");
 
 export default {
   // Returns articles from the NYT API

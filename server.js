@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -28,3 +28,5 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log('Listening on port: ' + PORT);
 })
+
+module.exports = app;
