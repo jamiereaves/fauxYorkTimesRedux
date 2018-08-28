@@ -43,12 +43,12 @@ class Articles extends Component {
       API.getArticles(this.state.search, this.state.startDate, this.state.endDate)
         .then(res => 
           this.setState({ articles: res.data.response.docs}, function(){
-            console.log(this.state.articles[0]);
+            /*console.log(this.state.articles[0]);
             console.log("title: " + this.state.articles[0].headline.print_headline);
             console.log("byline: " + this.state.articles[0].byline.original);
             console.log("summary: " + this.state.articles[0].snippet);
             console.log("url: " + this.state.articles[0].web_url);
-            console.log("image: https://www.nytimes.com/" + this.state.articles[0].multimedia[2].url);
+            console.log("image: https://www.nytimes.com/" + this.state.articles[0].multimedia[2].url);*/
           }))
         .catch(err => console.log(err));
   };
@@ -143,16 +143,16 @@ class Articles extends Component {
                 >
                   <a href={article.web_url}>
                     <strong>
-                      {article.headline.print_headline}
+                      {article.headline.print_headline ? article.headline.print_headline : article.headline.main}
                     </strong>
                   </a>
                   <p>
-                    {article.byline.original}
+                    {article.byline ? article.byline.original : article.news_desk}
                   </p>
                   <p>
                     {article.snippet}
                   </p>
-                  <img src={"https://www.nytimes.com/" + article.multimedia[2].url} />
+                  <img  src={article.multimedia[2] ? "https://www.nytimes.com/" + article.multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png"}  placeholder={article.headline.print_headline}/>
                   <input type="button" value="Save Article" onClick={() => this.handleSaveArticle(article._id)} />
                 </ListItem>
               )
