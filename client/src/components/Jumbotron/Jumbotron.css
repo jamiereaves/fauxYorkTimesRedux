@@ -1,0 +1,10 @@
+.jumbotron {
+  background: 
+  /* top, transparent chartreuse, radial grandient so the background image is more visible at the center of the page */ 
+  radial-gradient(
+    rgb(136, 193, 234, .50), 
+    rgb(96, 150, 189, 1)
+  ),
+  /* bottom, image */
+  url("http://sf.co.ua/14/01/wallpaper-742242.jpg");
+}

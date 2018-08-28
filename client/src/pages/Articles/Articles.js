@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import { DateInput } from "../../components/Form/DateInput";
+import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
+import logo from '../../logo.svg';
 
 class Articles extends Component {
   // Setting our component's initial state
@@ -91,14 +93,12 @@ class Articles extends Component {
   render() {
     return (
       <Container fluid>
+      <Nav />
         <div id="searchDisplay">
         <Row>
           <Col size="lg-10 md-11 sm-12">
             <Jumbotron>
-              <h1>Search for an article.</h1>
-              <Link to={"/savedArticles"}>
-                View Saved Articles
-              </Link>
+              <h1>search for an article by keyword.</h1>
             </Jumbotron>
             <form>
               <Input
@@ -125,15 +125,12 @@ class Articles extends Component {
           </Col>
         </Row>
         </div>
-        <div id="articleDisplay" style={{display: "none"}}>
+        <div id="articleDisplay" style={{display: "none", marginBottom: "105px"}}>
         <Row >
           <Col size="lg-10 md-11 sm-12">
           <Jumbotron>
-              <h1>Articles about "{this.state.search}".</h1>
-              <input type="button" value="Search for Articles" onClick={() => this.changeView()}/>
-              <Link to={"/savedArticles"}>
-                View Saved Articles
-              </Link>
+              <h1>articles about "{this.state.search}".</h1>
+              <input type="button" value="change keyword" onClick={() => this.changeView()}/>
             </Jumbotron>
             <List>
             {this.state.articles.map(article => {
@@ -141,7 +138,7 @@ class Articles extends Component {
                 <ListItem 
                   key={article._id}
                 >
-                  <a href={article.web_url}>
+                  <a href={article.web_url} target="blank" rel="noopener noreferrer">
                     <strong>
                       {article.headline.print_headline ? article.headline.print_headline : article.headline.main}
                     </strong>
@@ -161,6 +158,7 @@ class Articles extends Component {
           </Col>
         </Row>
         </div>
+        <Footer>{<img src={logo} className="App-logo" alt="logo" />}</Footer>
       </Container>
     );
   }

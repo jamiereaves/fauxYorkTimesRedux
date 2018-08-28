@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
+import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
+import logo from '../../logo.svg';
 
 class SavedArticles extends Component {
   state = {
@@ -31,25 +33,24 @@ class SavedArticles extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
+      <Nav />
+        <div style={{marginBottom: "105px"}}>
+        <Row >
           <Col size="lg-10 md-11 sm-12">
             <Jumbotron>
-              <h1>Saved Articles</h1>
-              <Link to={"/"}>
-                Search Articles
-              </Link>
+              <h1>saved articles.</h1>
             </Jumbotron>
             {this.state.savedArticles.length ? (
               <List>
                 {this.state.savedArticles.map(article => (
                   <ListItem key={article._id}>
-                    <a href={article.url}>
+                    <a href={article.url} target="blank" rel="noopener noreferrer">
                     <strong>
                       {article.title}
                     </strong>
                   </a>
                   <p>
-                    byline: {article.byline}
+                    {article.byline}
                   </p>
                   <p>
                     {article.summary}
@@ -64,6 +65,8 @@ class SavedArticles extends Component {
             )}
           </Col>
         </Row>
+        </div>
+        <Footer>{<img src={logo} className="App-logo" alt="logo" />}</Footer>
       </Container>
     );
   }
