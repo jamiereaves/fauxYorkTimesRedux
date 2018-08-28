@@ -14,5 +14,9 @@
     "mongoose": "^5.2.10",
     "react-router-dom": "^4.3.1",
     "routes": "^2.1.0"
+  },
+  "scripts": {
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   }
 }
