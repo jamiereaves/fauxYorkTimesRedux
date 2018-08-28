@@ -32,7 +32,7 @@ class SavedArticles extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6 sm-12">
+          <Col size="lg-10 md-11 sm-12">
             <Jumbotron>
               <h1>Saved Articles</h1>
               <Link to={"/"}>
@@ -54,7 +54,7 @@ class SavedArticles extends Component {
                   <p>
                     {article.summary}
                   </p>
-                  <img src={article.image} />
+                  <img src={article.image} className="caption" />
                     <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
                   </ListItem>
                 ))}

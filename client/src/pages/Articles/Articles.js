@@ -93,7 +93,7 @@ class Articles extends Component {
       <Container fluid>
         <div id="searchDisplay">
         <Row>
-          <Col size="md-6">
+          <Col size="lg-10 md-11 sm-12">
             <Jumbotron>
               <h1>Search for an article.</h1>
               <Link to={"/savedArticles"}>
@@ -127,7 +127,7 @@ class Articles extends Component {
         </div>
         <div id="articleDisplay" style={{display: "none"}}>
         <Row >
-          <Col size="md-6">
+          <Col size="lg-10 md-11 sm-12">
           <Jumbotron>
               <h1>Articles about "{this.state.search}".</h1>
               <input type="button" value="Search for Articles" onClick={() => this.changeView()}/>
@@ -152,7 +152,7 @@ class Articles extends Component {
                   <p>
                     {article.snippet}
                   </p>
-                  <img  src={article.multimedia[2] ? "https://www.nytimes.com/" + article.multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png"}  placeholder={article.headline.print_headline}/>
+                  <img  className="caption" src={article.multimedia[2] ? "https://www.nytimes.com/" + article.multimedia[2].url  : "https://umrengines.com.au/wp-content/uploads/2016/09/no-image-available.png"}  placeholder={article.headline.print_headline}/>
                   <input type="button" value="Save Article" onClick={() => this.handleSaveArticle(article._id)} />
                 </ListItem>
               )

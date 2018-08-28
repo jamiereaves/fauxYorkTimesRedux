@@ -31,3 +31,8 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+.caption{
+  height:75px;
+  width: 75px;
+}
